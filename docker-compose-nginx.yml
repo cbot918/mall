@@ -1,0 +1,12 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:1.22
+    container_name: test-nginx
+    volumes:
+      - /home/vagrant/mydata/nginx/conf:/etc/nginx/conf #配置文件目录挂载
+      - /home/vagrant/mydata/nginx/html:/usr/share/nginx/html #静态资源根目录挂载
+      - /home/vagrant/mydata/nginx/logs:/var/log/nginx/logs #日志文件目录挂载
+      - /home/vagrant/mydata/nginx:/etc/nginx
+    ports:
+      - 80:80
